@@ -1,4 +1,4 @@
-2. Exploratory Graphs
+# 2. Exploratory Graphs
 head(pollution) # Просмотр первых шести строк таблицы pollution
 summary(pollution$pm25) # Анализ переменной pm25 из датафрейма pollution
 quantile(ppm) # Вычисляет квантильные значения для переменной ppm (pm25)
@@ -32,9 +32,8 @@ west <- subset(pollution, region == "west") # Создает подмножес�
 plot(west$latitude, west$pm25, main = "West") # Scatter plot для latitude и pm25 в регионе "west"
 plot(east$latitude, east$pm25, main = "East") # Scatter plot для latitude и pm25 в регионе "east"
 
-3. Graphics Devices in R
 
-
+# 3. Graphics Devices in R
 with(faithful, plot(eruptions, waiting)) # Scatter plot для eruptions и waiting
 title(main = "Old Faithful Geyser data") # Добавляет заголовок к графику
 dev.cur() # Выводит текущее графическое устройство
@@ -49,8 +48,8 @@ title(main = "Old Faithful Geyser data") # Добавляет заголовок
 dev.copy(png, file = "geyserplot.png") # Копирует текущий график в PNG-файл
 dev.off() # Закрывает PNG-устройство и сохраняет файл
 
-4. Plotting systems
 
+# 4. Plotting systems
 head(cars) # Выводит первые шесть строк датафрейма cars
 with(cars, plot(speed, dist)) # Scatter plot для speed и dist
 text(mean(cars$speed), max(cars$dist), "SWIRL rules!") # Добавляет текст на график
@@ -63,7 +62,8 @@ dim(mpg) # Выводит размерность датафрейма mpg
 table(mpg$model) # Создает таблицу частот для переменной model
 qplot(displ, hwy, data = mpg) # Scatter plot для displ и hwy с помощью qplot
 
-5. Base plotting system
+
+# 5. Base plotting system
 head(airquality) # Выводит первые шесть строк датафрейма airquality
 range(airquality$Ozone, na.rm = TRUE) # Выводит диапазон значений переменной Ozone
 hist(airquality$Ozone) # Гистограмма для переменной Ozone
@@ -96,8 +96,8 @@ plot(airquality$Solar.R, airquality$Ozone, main = "Ozone and Solar Radiation") #
 plot(airquality$Temp, airquality$Ozone, main = "Ozone and Temperature") # Scatter plot для Temp и Ozone
 mtext("Ozone and Weather in New York City", outer = TRUE) # Добавляет общий заголовок
 
-6. Lattice Plotting System
 
+# 6. Lattice Plotting System
 > head(airquality) # Просмотр первых строк данных airquality
 > xyplot(Ozone ~ Wind, data = airquality) # Построение графика Ozone от Wind с использованием Lattice
 > xyplot(Ozone ~ Wind, data = airquality, pch=8, col="red", main="Big Apple Data") # График с настройками символов, цвета и заголовка
@@ -122,7 +122,8 @@ mtext("Ozone and Weather in New York City", outer = TRUE) # Добавляет �
 >xyplot(price~carat|color*cut,data=diamonds,strip=FALSE,pch=20,xlab=myxlab,ylab=myylab,main=mymain) # График с настройками осей и заголовка
 >xyplot(price~carat|color*cut,data=diamonds,pch=20,xlab=myxlab,ylab=myylab,main=mymain) # График с настройками символов и осей
 
-7. Working with Colors
+
+# 7. Working with Colors
 > sample(colors(),10) # Выбор 10 случайных цветов из списка
 > pal <- colorRamp(c("red","blue")) # Создание палитры от красного к синему
 > pal(0) # Получение цвета для значения 0
@@ -150,7 +151,9 @@ mtext("Ozone and Weather in New York City", outer = TRUE) # Добавляет �
 > showMe(pal(20)) # Отображение 20 цветов из палитры
 > image(volcano, col = pal(20)) # Отображение изображения с использованием палитры
 > image(volcano, col = p1(20)) # Отображение изображения с использованием палитры p1
-8: GGPlot2 Part1
+
+
+# 8: GGPlot2 Part1
 > str(mpg) # Просмотр структуры данных mpg
 > qplot(displ, hwy, data = mpg) # Построение графика с использованием qplot
 > qplot(displ, hwy, data = mpg, color = drv) # График с цветом по переменной drv
@@ -162,7 +165,8 @@ mtext("Ozone and Weather in New York City", outer = TRUE) # Добавляет �
 > qplot(displ, hwy, data = mpg, facets = . ~ drv) # График с разбивкой по drv
 > qplot(hwy, data = mpg, facets = drv ~ ., binwidth = 2) # Гистограмма с разбивкой по drv
 
-9: GGPlot2 Part2
+
+#9: GGPlot2 Part2
 > g <- ggplot(mpg,aes(displ,hwy)) # Создание объекта ggplot
 > g+geom_point() # Добавление точек к графику
 > g+geom_point()+geom_smooth() # Добавление сглаживания к графику
@@ -185,8 +189,8 @@ mtext("Ozone and Weather in New York City", outer = TRUE) # Добавляет �
 > g + geom_point() + facet_grid(drv~cyl,margins=TRUE)+geom_smooth(method="lm",size=2,se=FALSE,color="black") # Добавление линейной модели
 > g + geom_point() + facet_grid(drv~cyl,margins=TRUE)+geom_smooth(method="lm",size=2,se=FALSE,color="black")+labs(x="Displacement",y="Highway Mileage",title="Swirl Rules!") # Добавление подписей и заголовка
 
-10: GGPlot2 Extras
 
+#10: GGPlot2 Extras
 > qplot(price,data=diamonds) # Гистограмма цены
 > qplot(price,data=diamonds,binwidth=18497/30) # Гистограмма с настройкой ширины бинов
 > qplot(price,data=diamonds,binwidth=18497/30,fill=cut) # Гистограмма с заполнением по cut
